@@ -1,0 +1,69 @@
+# System Plugin for NativePHP Mobile
+
+System-level operations for NativePHP Mobile apps.
+
+## Overview
+
+The System API provides access to system-level functionality like opening the app's settings page.
+
+## Installation
+
+```bash
+composer require nativephp/mobile-system
+```
+
+## Usage
+
+### PHP (Livewire/Blade)
+
+```php
+use Native\Mobile\Facades\System;
+
+// Open app settings (useful when user denied permissions)
+System::openAppSettings();
+```
+
+### JavaScript (Vue/React/Inertia)
+
+```js
+import { system } from '#nativephp';
+
+// Open app settings
+await system.openAppSettings();
+```
+
+## Methods
+
+### `openAppSettings(): array`
+
+Opens the app's settings screen in the device settings. This is useful when a user has denied a permission and you want to direct them to the settings to grant it.
+
+**Returns:** `{ success: true }`
+
+## Use Cases
+
+### Handling Denied Permissions
+
+```php
+use Native\Mobile\Facades\Camera;
+use Native\Mobile\Facades\System;
+
+public function takePhoto()
+{
+    $result = Camera::getPhoto();
+
+    if (isset($result['error']) && str_contains($result['error'], 'permission')) {
+        // Permission denied, offer to open settings
+        $this->showPermissionDialog = true;
+    }
+}
+
+public function openSettings()
+{
+    System::openAppSettings();
+}
+```
+
+## License
+
+MIT
