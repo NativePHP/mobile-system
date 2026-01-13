@@ -1,6 +1,6 @@
 {
     "name": "nativephp/mobile-system",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "System-level operations for NativePHP Mobile",
     "type": "nativephp-plugin",
     "license": "MIT",
