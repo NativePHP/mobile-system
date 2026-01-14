@@ -42,27 +42,9 @@ Opens the app's settings screen in the device settings. This is useful when a us
 
 ## Use Cases
 
-### Handling Denied Permissions
-
-```php
-use Native\Mobile\Facades\Camera;
-use Native\Mobile\Facades\System;
-
-public function takePhoto()
-{
-    $result = Camera::getPhoto();
-
-    if (isset($result['error']) && str_contains($result['error'], 'permission')) {
-        // Permission denied, offer to open settings
-        $this->showPermissionDialog = true;
-    }
-}
-
-public function openSettings()
-{
-    System::openAppSettings();
-}
-```
+- Direct users to grant permissions after initial denial
+- Allow users to change notification preferences
+- Enable users to manage app-specific settings
 
 ## License
 
