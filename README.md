@@ -26,10 +26,10 @@ System::openAppSettings();
 ### JavaScript (Vue/React/Inertia)
 
 ```js
-import { system } from '#nativephp';
+import { System } from '#nativephp';
 
 // Open app settings
-await system.openAppSettings();
+await System.openAppSettings();
 ```
 
 ## Methods
